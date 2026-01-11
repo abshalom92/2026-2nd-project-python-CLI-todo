@@ -22,6 +22,18 @@ def add_tasks(tasks, text):
     save_tasks(tasks)
     print(f'Added task: "{text}"')
 
+def complete_task(tasks, task_number):
+    index = task_number - 1
+    
+    if index < 0 or index >= len(tasks):
+        print("Invalid task number. Double check your input based on the list of tasks.")
+        return
+
+    tasks[index]["done"] = True
+    save_tasks(tasks)
+    print(f'Marked task {task_number} as complete.')
+
+
 def list_tasks(tasks):
     if not tasks:
         print("No tasks yet.")
@@ -48,6 +60,20 @@ def main():
 
         task_text = " ".join(sys.argv[2:])
         add_tasks(tasks, task_text)
+
+    elif command == "complete":
+        if len(sys.argv) != 3:
+            print("Usage: python3 todo.py complete <task_number>")
+            return
+
+        try:
+            task_number = int(sys.argv[2])
+        except ValueError:
+            print("Task number must be an integer.")
+            return
+
+        complete_task(tasks, task_number)
+
 
     else:
         print(f"Unknown command: {command}")
