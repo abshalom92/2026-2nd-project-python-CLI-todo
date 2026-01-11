@@ -6,5 +6,13 @@
   {
     "text": "Build a CLI app",
     "done": true
+  },
+  {
+    "text": "buy milk",
+    "done": false
+  },
+  {
+    "text": "Write Python CLI app",
+    "done": false
   }
 ]

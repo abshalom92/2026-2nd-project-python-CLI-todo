@@ -35,7 +35,22 @@ def list_tasks(tasks):
 
 def main():
     tasks = load_tasks()
-    list_tasks(tasks)
+    if len(sys.argv) < 2:
+        list_tasks(tasks)
+        return
+
+    command = sys.argv[1]
+
+    if command == "add":
+        if len(sys.argv) < 3:
+            print("Usage: python todo.py add \"Task decription\"")
+            return
+
+        task_text = " ".join(sys.argv[2:])
+        add_tasks(tasks, task_text)
+
+    else:
+        print(f"Unknown command: {command}")
 
 
 
