@@ -1,5 +1,6 @@
 import json
 import os
+import sys
 
 def load_tasks():
     if not os.path.exists("tasks.json"):
@@ -11,6 +12,15 @@ def load_tasks():
 def save_tasks(tasks):
     with open("tasks.json", "w") as file:
         json.dump(tasks, file, indent=2)
+
+def add_tasks(tasks, text):
+    task = {
+        "text": text,
+        "done": False
+    }
+    tasks.append(task)
+    save_tasks(tasks)
+    print(f'Added task: "{text}"')
 
 def list_tasks(tasks):
     if not tasks:
