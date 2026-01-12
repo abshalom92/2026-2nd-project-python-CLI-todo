@@ -14,5 +14,9 @@
   {
     "text": "Write Python CLI app",
     "done": false
+  },
+  {
+    "text": "Test refactor",
+    "done": true
   }
 ]
