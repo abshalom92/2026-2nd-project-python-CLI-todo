@@ -18,5 +18,9 @@
   {
     "text": "Test refactor",
     "done": true
+  },
+  {
+    "text": "test argparse functionality",
+    "done": true
   }
 ]
