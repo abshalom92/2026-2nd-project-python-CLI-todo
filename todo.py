@@ -1,6 +1,6 @@
 import argparse
 from storage import load_tasks
-from commands import list_tasks, add_task, complete_task
+from commands import list_tasks, add_task, complete_task, delete_task
 
 def create_parser():
     parser = argparse.ArgumentParser(
@@ -27,7 +27,17 @@ def create_parser():
         "task_number", type=int, help="Task number to complete"
     )
 
+    #delete command
+
+    delete_parser = subparsers.add_parser(
+        "delete", help="Delete a task"
+    )
+    delete_parser.add_argument(
+        "task_number", type=int, help="Task number to delete"
+    )
+
     return parser
+
 
 def main():
     parser = create_parser()
@@ -44,6 +54,9 @@ def main():
 
     elif args.command == "complete":
         complete_task(tasks, args.task_number)
+
+    elif args.command == "delete":
+        delete_task(tasks, args.task_number)
 
 if __name__ == "__main__":
     main()

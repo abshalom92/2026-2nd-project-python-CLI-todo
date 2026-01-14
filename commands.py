@@ -31,3 +31,13 @@ def complete_task(tasks, task_number):
     save_tasks(tasks)
     print(f"Marked task {task_number} as complete.")
 
+def delete_task(tasks, task_number):
+    index = task_number - 1
+
+    if index < 0 or index >= len(tasks):
+        print("Invalid task number.")
+        return
+    
+    deleted = tasks.pop(index)
+    save_tasks(tasks)
+    print(f'Deleted task {task_number}: "{deleted["text"]}"')

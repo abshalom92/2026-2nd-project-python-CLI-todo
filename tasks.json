@@ -8,10 +8,6 @@
     "done": true
   },
   {
-    "text": "buy milk",
-    "done": true
-  },
-  {
     "text": "Write Python CLI app",
     "done": false
   },
